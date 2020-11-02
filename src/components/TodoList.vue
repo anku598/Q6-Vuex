@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="todo-list">
     <input
       type="text"
       class="todo-input"
@@ -83,6 +83,12 @@ export default {
 
 <style lang="scss">
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
+
+.todo-list {
+  max-width: 50%;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
 .todo-input {
   width: 100%;
   padding: 10px 18px;
@@ -144,6 +150,9 @@ button {
   font-size: 14px;
   background-color: white;
   appearance: none;
+  padding: 0.5rem 1rem;
+  margin-right: 10px;
+  cursor: pointer;
   &:hover {
     background: lightgreen;
   }

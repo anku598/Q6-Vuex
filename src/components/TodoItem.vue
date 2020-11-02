@@ -23,7 +23,7 @@
     </div>
     <!-- end todo-item-left -->
     <div>
-      <button @click="pluralize">Plural</button>
+      <!-- <button @click="pluralize">Plural</button> -->
       <span class="remove-item" @click="removeTodo(todo.id)"> &times; </span>
     </div>
   </div>
@@ -51,12 +51,6 @@ export default {
       editing: this.todo.editing,
       beforeEditCache: '',
     };
-  },
-  created() {
-    this.eventBus.$on('pluralize', this.handlePluralize);
-  },
-  beforeDestroy() {
-    this.eventBus.$off('pluralize', this.handlePluralize);
   },
   watch: {
     checkAll() {
@@ -96,15 +90,6 @@ export default {
     },
     pluralize() {
       this.eventBus.$emit('pluralize');
-    },
-    handlePluralize() {
-      this.title = this.title + 's';
-      this.$store.dispatch('updateTodo', {
-        id: this.id,
-        title: this.title,
-        completed: this.completed,
-        editing: this.editing,
-      });
     },
   },
 };
